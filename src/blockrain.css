@@ -97,3 +97,24 @@
   margin-bottom: 30px;
 }
 
+/* Preview */
+.blockrain-preview-holder {
+  position: absolute;
+  top: 0;
+}
+
+.blockrain-preview-shape {
+  height: 100%;
+  width: 100%;
+}
+
+.blockrain-preview-msg {
+  font-weight: 700;
+  text-align: center;
+}
+
+.blockrain-preview {
+  height: 150px;
+  overflow: hidden;
+  width: 100px;
+}
