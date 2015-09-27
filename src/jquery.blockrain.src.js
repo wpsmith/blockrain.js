@@ -27,6 +27,7 @@
       onStart: function(){},
       onRestart: function(){},
       onGameOver: function(score){},
+      onKeyPress: function(e){},
 
       // When a line is made. Returns the number of lines, score assigned and total score
       onLine: function(lines, scoreIncrement, score){}
@@ -1137,7 +1138,7 @@
             case 40: /*down*/   game._board.dropCount = game._board.dropDelay; break;
             case 88: /*x*/      game._board.cur.rotate(true); break;
             case 90: /*z*/      game._board.cur.rotate(false); break;
-            default: caught = false;
+            default: caught = game.options.onKeyPress.call(this.element, evt) || false; break;
           }
         }
         if (caught) evt.preventDefault();
