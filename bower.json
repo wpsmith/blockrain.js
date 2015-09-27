@@ -9,7 +9,8 @@
   },
   "license": "MIT",
   "authors": [
-    "Aerolab <hey@aerolab.co>"
+    "Aerolab <hey@aerolab.co>",
+    "Travis Smith <t@wpsmith.net>"
   ],
   "keywords": [
     "tetris",
