@@ -16,12 +16,13 @@ var getCopyright = function () {
 
 gulp.task('js', function () {
     // Concatenate and Minify JS
-    return gulp.src(['./src/blockrain.jquery.libs.js', './src/blockrain.jquery.src.js', './src/blockrain.jquery.themes.js'])
-    .pipe(concat('blockrain.jquery.js'))
+    // @todo build jquery.widget update as bower gulp task
+    return gulp.src(['./src/jquery.widget.js', './src/jquery.blockrain.src.js', './src/jquery.blockrain.themes.js'])
+    .pipe(concat('jquery.blockrain.js'))
     .pipe(header(getCopyright(), {version: getVersion()}))
     .pipe(gulp.dest('./dist'))
     .pipe(uglify({preserveComments:'none'}))
-    .pipe(concat('blockrain.jquery.min.js'))
+    .pipe(concat('jquery.blockrain.min.js'))
     .pipe(header(getCopyright(), {version: getVersion()}))
     .pipe(gulp.dest('./dist'));
 });
@@ -40,7 +41,7 @@ gulp.task('readme', function () {
 
 gulp.task('dist', function () {
     // Create a ZIP File
-    return gulp.src(['./dist/blockrain.jquery.js', './dist/blockrain.jquery.min.js', './dist/blockrain.css'])
+    return gulp.src(['./dist/jquery.blockrain.js', './dist/jquery.blockrain.min.js', './dist/blockrain.css'])
     .pipe(zip('blockrain.zip'))
     .pipe(gulp.dest('./dist'));
 });
