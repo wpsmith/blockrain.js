@@ -1101,13 +1101,23 @@
       return func;
     },
 
+    /**
+     * Get random object key from Shape Factory object.
+     *
+     * @returns {string} Randomly selected Block Type.
+     * @private
+     */
+    _getRandom: function(){
+      var result, count = 0;
+      for (var prop in this._shapeFactory)
+        if (Math.random() < 1/++count)
+          result = prop;
+      return result;
+    },
 
     _randomShapes: function() {
-      // Todo: The shapefuncs should be cached.
-      var shapeFuncs = [];
-      $.each(this._shapeFactory, function(k,v) { shapeFuncs.push(v); });
-
-      return this._randChoice(shapeFuncs);
+      var k = this._getRandom();
+      return this._shapeFactory[k];
     },
 
 
